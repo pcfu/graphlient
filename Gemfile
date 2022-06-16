@@ -6,11 +6,11 @@ gem 'rake'
 
 group :development, :test do
   gem 'activesupport', '< 6'
+  gem 'pry'
 end
 
 group :development do
   gem 'byebug', platform: :ruby
-  gem 'danger-changelog', '~> 0.2.1'
   gem 'rubocop', '0.56.0'
 end
 
