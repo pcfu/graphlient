@@ -1,5 +1,6 @@
+require 'rack'
 require 'faraday'
-require 'faraday_middleware'
+require 'faraday/rack'
 
 module Graphlient
   module Adapters
@@ -14,7 +15,12 @@ module Graphlient
               variables: variables
             }.to_json
           end
-          response.body
+
+          begin
+            JSON.parse(response.body)
+          rescue StandardError
+            response.body
+          end
         rescue Faraday::ConnectionFailed => e
           raise Graphlient::Errors::ConnectionFailedError, e
         rescue Faraday::TimeoutError => e
