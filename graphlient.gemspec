@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'faraday', '~> 2.3.0'
   s.add_dependency 'faraday-net_http'
-  s.add_dependency 'rack'
   s.add_dependency 'faraday-rack'
   s.add_dependency 'graphql-client'
+  s.add_dependency 'rack'
 end
